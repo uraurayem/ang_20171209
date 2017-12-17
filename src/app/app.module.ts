@@ -7,12 +7,16 @@ import { UserComponent } from './user/user.component'; // ng generate component 
 
 
 @NgModule({
+
+  //사용할 컴포넌트 등록
   declarations: [
     AppComponent,
     UserComponent
   ],
+  // 
   imports: [
-    BrowserModule , FormsModule
+    BrowserModule , 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
