@@ -25,8 +25,11 @@
   <button (click)="addUser()">유저추가</button>
 </div>
 <h2>Here are some links to help you start: </h2>
+
+
+<!-- 
 <ul>
-  <li>
+    <li>
     <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
   </li>
   <li>
@@ -34,6 +37,21 @@
   </li>
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+  </li> -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a class="navbar-brand">{{pageTitle}}</a>
+    <ul class="nav navbar-nav">
+
+      <li><a [routerLink]="['/']">HOME</a></li>
+      <li><a [routerLink]="['/user']">UserList</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <div class='container' >
+
+    <router-outlet></router-outlet>
+  </div>
+<!-- </ul> -->
 

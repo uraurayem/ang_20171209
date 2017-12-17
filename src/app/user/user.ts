@@ -3,6 +3,7 @@ export class User {
     userId : string ; 
     userName : string ; 
     userPwd : string ; 
+    userAge : number;
     complete : boolean  ;
     token :string ; 
     constructor (value : Object = {} ) { // 생성자
