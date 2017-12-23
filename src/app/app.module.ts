@@ -5,13 +5,15 @@ import {RouterModule} from '@angular/router';
 import {enableProdMode} from '@angular/core';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component'; // ng generate component User 로 자동으로  추가된 부분
+import { UserComponent } from './user/user.component';
+import { TestComponent } from './test/test.component'; // ng generate component User 로 자동으로  추가된 부분
 
 
 @NgModule({
 
   //사용할 컴포넌트 등록
-  declarations: [
+  declarations:
+    [TestComponent ,
     AppComponent,
     UserComponent
   ],
@@ -25,6 +27,10 @@ import { UserComponent } from './user/user.component'; // ng generate component 
       {
         path: 'user', 
         component :UserComponent
+      } ,
+      {
+        path: 'test', 
+        component :TestComponent
       }
 
     ]) 

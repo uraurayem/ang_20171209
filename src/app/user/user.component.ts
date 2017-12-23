@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   errorMsg:String = '' ;
   searchUser:User = new User();
   addUserObj:User = new User();
-
+  addUserObj2:User ; 
   constructor(private uds: UserDataService ) {
 
     this.getUsers();
@@ -23,12 +23,22 @@ export class UserComponent implements OnInit {
 
 
   addUser(): void { 
-    this.uds.addUser(this.addUserObj).subscribe (
+    this.addUserObj2 = new User();
+    this.addUserObj2.userId = "test1";
+
+    this.uds.addUser(this.addUserObj2).subscribe (
       () => {}, 
       (err) => {
       console.log('ERROR component', err);
     }
     ) ;
+
+    // this.uds.addUser(this.addUserObj).subscribe (
+    //   () => {}, 
+    //   (err) => {
+    //   console.log('ERROR component', err);
+    // }
+    // ) ;
 
   }
 
