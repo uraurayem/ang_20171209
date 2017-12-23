@@ -1,3 +1,38 @@
 <p>
-  depart works!
+ {{title}}
 </p>
+<div>
+
+  dino :  <input type="text" [(ngModel)] ="departInfo.dino" /><br>
+  diname :<input type="text" [(ngModel)] ="departInfo.diname" /><br>
+  didesc : <input type="text" [(ngModel)] ="departInfo.didesc" /><br>
+  dicnt : <input type="text" [(ngModel)] ="departInfo.dicnt" /><br>
+  
+
+  {{departInfo.dino }}  , {{departInfo.diname }}  , {{departInfo.didesc }}  , {{departInfo.dicnt }}  
+
+
+  <br>
+  <button (click)="addDepart()" >부서추가</button>
+  <button (click)="showDepartList()">부서리스트 보기</button>
+  <app-test *ngIf="isShow"></app-test>
+
+  <table *ngIf="departList.length > 0" border="1">
+    <tr>
+      <td>부서번호</td>
+      <td>부서이름</td>
+      <td>부서설명</td>
+      <td>부서인원</td>
+      <td> 삭제 </td>
+    </tr>
+
+    <tr *ngFor="let di of departList ">
+      <td>{{di.dino}} </td>
+      <td>{{di.diname}} </td>
+      <td>{{di.didesc}} </td>
+      <td>{{di.dicnt}} </td>
+      <td> <button (click)="deleteCurRow(di.no)">삭제</button> </td>
+    </tr>
+
+  </table>
+</div>

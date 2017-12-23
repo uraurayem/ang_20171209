@@ -36,7 +36,7 @@ import { DepartComponent } from './depart/depart.component'; // ng generate comp
       }
       ,
       {
-        path: 'departList', 
+        path: 'depart', 
         component :DepartComponent
       }
     ]) 
