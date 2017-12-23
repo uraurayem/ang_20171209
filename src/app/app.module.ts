@@ -6,14 +6,16 @@ import {enableProdMode} from '@angular/core';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-import { TestComponent } from './test/test.component'; // ng generate component User 로 자동으로  추가된 부분
+import { TestComponent } from './test/test.component';
+import { DepartComponent } from './depart/depart.component'; // ng generate component User 로 자동으로  추가된 부분
 
 
 @NgModule({
 
   //사용할 컴포넌트 등록
-  declarations:
-    [TestComponent ,
+  declarations:[
+    TestComponent,
+    DepartComponent ,
     AppComponent,
     UserComponent
   ],
@@ -32,7 +34,11 @@ import { TestComponent } from './test/test.component'; // ng generate component 
         path: 'test', 
         component :TestComponent
       }
-
+      ,
+      {
+        path: 'departList', 
+        component :DepartComponent
+      }
     ]) 
   ],
   providers: [],

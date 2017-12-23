@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Test } from './test';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  tt:Test ; 
 
-  ngOnInit() {
+  title:String ="테스트 컴포넌트 입니다." ;
+  constructor() { 
+    this.tt = new Test();
+    this.tt.name = "홍길동";
+    this.tt.title = "테스트컴포넌트 입니다.";
+
+    console.log(this.title);
   }
 
+  ngOnInit() {
+
+
+  }
+
+  changeTitle():void {
+    this.title="바뀐 테스트 컴포넌트";
+  }
 }
