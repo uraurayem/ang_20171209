@@ -43,7 +43,7 @@ export class DepartComponent implements OnInit {
 
     this.departInfo = di ;
 
-    this.addDepart();
+    this.addDepart(di);
 
     //this.dis.addDepart(di);
    
@@ -65,10 +65,19 @@ export class DepartComponent implements OnInit {
       this.btn1_title = "테스트 안보기";
     }
   }
-  addDepart():void { 
+  addDepart(di:Depart):void { 
  
-    this.dis.addDepart(this.departInfo);
-    this.departInfo = new Depart();
+    this.dis.addDepart(di).subscribe (
+
+      datas => {
+        let result = datas.json();
+        console.log(result.succeed);
+        console.log(result.di);
+      }
+
+    ); 
+    // this.dis.addDepart(this.departInfo);
+    // this.departInfo = new Depart();
   }
   showDepartList():void { 
     this.departList = this.dis.getDepartList();
