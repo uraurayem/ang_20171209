@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Http, Response, Headers} from '@angular/http';
+
 import { Depart } from './depart';
 
 
 @Injectable()
 export class DepartService {
 
-  departList:Array<Depart> = [] ; 
+  departList:Array<Depart> = [] ;
   
-  constructor() { 
-    console.log("누군가는 부서생성자를 호출합니다.");
+  private headers = new Headers();
+  
+  constructor(protected _http:Http) {
+    
+    this.headers.append('Content-Type', 'application/json;charset=utf-8');
+    this.headers.append('Accept','application/json;charset=utf-8'); 
   }
 
   addDepart(di:Depart) { 

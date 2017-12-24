@@ -7,29 +7,55 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FuncTestComponent implements OnInit {
 
+  title:string = "함수 테스트";
+
   constructor() { }
 
   ngOnInit() {
   }
 
   funcTest1():void { 
-    test();
-    function test():void { 
-      alert(1);
+    test(this.title);
+    function test(str:string):void { 
+      alert(str);
     }
   }
   funcTest2():void { 
  
-    let test;  
-     try {
-       test();
-      } catch (e) {  
-        alert(e);
-        test = function ()
-        {
-        alert(1);
-        }
-     }
-     test();
+    let title = this.title ; 
+    let test = function():void { 
+      alert(title);
+    }
+
+    try{
+    
+      test();
+    } catch (e) {
+      alert(e);
+    }
+
+  }
+
+  funcTest3():void { 
+    let test = function():void {
+      alert(this.title);
+    }
+    test.bind(this)();
+  }
+
+  funcTest4():void { 
+    let test = function():void {
+      alert(this.title);
+    }
+    test.call(this);
+  }
+
+  funcTest5():void { 
+   
+    let test = () => {
+      alert(this.title) ;
+    }
+
+    test();
   }
 }
