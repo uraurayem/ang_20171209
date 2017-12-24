@@ -3,7 +3,7 @@
 </p>
 <div>
 
-  dino :  <input type="text" [(ngModel)] ="departInfo.dino" /><br>
+  <!-- dino :  <input type="text" [(ngModel)] ="departInfo.dino" /><br>
   diname :<input type="text" [(ngModel)] ="departInfo.diname" /><br>
   didesc : <input type="text" [(ngModel)] ="departInfo.didesc" /><br>
   dicnt : <input type="text" [(ngModel)] ="departInfo.dicnt" /><br>
@@ -13,10 +13,13 @@
 
 
   <br>
-  <button (click)="addDepart()" >부서추가</button>
+-->
+  <app-depart-insert *ngIf="parentVisible" [title]="subTitle" (childVisible)="toggleDepartInsert($event)"></app-depart-insert>
+  
+  <button (click)="toggleDepartInsert(true)" >부서추가</button>
   <button (click)="showDepartList()">부서리스트 보기</button>
-  <app-test *ngIf="isShow"></app-test>
 
+  <!-- <app-test *ngIf="isShow"></app-test>  -->
   <table *ngIf="departList.length > 0" border="1">
     <tr>
       <td>부서번호</td>

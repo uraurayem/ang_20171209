@@ -17,6 +17,12 @@ export class DepartComponent implements OnInit {
 
   departList:Array<Depart> = [] ; 
 
+
+
+  //depart insert 에 보낼 값
+  parentVisible :boolean = false ;
+  subTitle : string = this.title +"입력" ;
+
   constructor(private dis:DepartService) { 
     this.departInfo = new Depart();
 
@@ -27,6 +33,14 @@ export class DepartComponent implements OnInit {
 
 
   }
+
+  toggleDepartInsert (v:boolean) : void {
+    this.parentVisible = v;
+  }
+  // onChildVisibleChanged(v:boolean) : void { 
+  //   this.parentVisible = v; 
+  // }
+
   printInfo():void {
     console.log(this.departInfo) ;
   }
