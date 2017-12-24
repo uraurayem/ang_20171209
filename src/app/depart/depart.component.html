@@ -14,7 +14,10 @@
 
   <br>
 -->
-  <app-depart-insert *ngIf="parentVisible" [title]="subTitle" (childVisible)="toggleDepartInsert($event)"></app-depart-insert>
+  <app-depart-insert *ngIf="parentVisible" [title]="subTitle" 
+                      (childVisible)="toggleDepartInsert($event)"
+                      (childDepartInfo)="saveDepartInfo($event)">
+  </app-depart-insert>
   
   <button (click)="toggleDepartInsert(true)" >부서추가</button>
   <button (click)="showDepartList()">부서리스트 보기</button>

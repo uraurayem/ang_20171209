@@ -9,7 +9,8 @@ import { UserComponent } from './user/user.component';
 import { TestComponent } from './test/test.component';
 import { DepartComponent } from './depart/depart.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { DepartInsertComponent } from './depart-insert/depart-insert.component'; // ng generate component User 로 자동으로  추가된 부분
+import { DepartInsertComponent } from './depart-insert/depart-insert.component';
+import { FuncTestComponent } from './func-test/func-test.component'; // ng generate component User 로 자동으로  추가된 부분
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DepartInsertComponent } from './depart-insert/depart-insert.component';
     TestComponent,
     DepartComponent,
     WelcomeComponent,
-    DepartInsertComponent ,
+    DepartInsertComponent,
+    FuncTestComponent ,
     AppComponent,
     UserComponent
   ],
@@ -42,6 +44,11 @@ import { DepartInsertComponent } from './depart-insert/depart-insert.component';
       {
         path: 'depart', 
         component :DepartComponent
+      }
+      ,
+      {
+        path: 'functest', 
+        component : FuncTestComponent
       }
       ,
       {

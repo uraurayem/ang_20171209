@@ -1,14 +1,14 @@
 <div class="dialog">
   <h3>{{title}}</h3>
 
-  부서번호 : <input type="text" /><br>
-  부서이름 : <input type="text" /><br>
-  부서설명 : <input type="text" /><br>
-  부서인원 : <input type="text" /><br>
+  부서번호 : <input type="text" [(ngModel)] ="departInfo.dino" /><br>
+  부서이름 : <input type="text" [(ngModel)] ="departInfo.diname" /><br>
+  부서설명 : <input type="text" [(ngModel)] ="departInfo.didesc" /><br>
+  부서인원 : <input type="text" [(ngModel)] ="departInfo.dicnt" /><br>
 
 
     <div>
-      <button>저장</button>
+      <button  (click)="save()">저장</button>
       <button (click)="close()">취소</button>
     </div>
 

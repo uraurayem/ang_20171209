@@ -1,4 +1,5 @@
 import { Component, OnInit , Input, Output, EventEmitter} from '@angular/core';
+import {Depart} from '../depart/depart' ;
 
 @Component({
   selector: 'app-depart-insert',
@@ -9,14 +10,21 @@ export class DepartInsertComponent implements OnInit {
 
   @Input() title:string; 
   @Output() childVisible = new EventEmitter<boolean>();
-  constructor() { }
+  @Output() childDepartInfo = new EventEmitter<Depart>();
 
+  departInfo:Depart;  
+
+  constructor() { 
+    this.departInfo = new Depart();
+      }
   ngOnInit() {
 
   }
-
-
-   close():void { 
-     this.childVisible.emit(false);
-   }
+  save():void { 
+    this.childDepartInfo.emit(this.departInfo);
+    this.close();
+  }
+  close():void { 
+    this.childVisible.emit(false);
+  }
 }

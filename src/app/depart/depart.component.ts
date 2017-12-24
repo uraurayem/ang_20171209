@@ -34,14 +34,26 @@ export class DepartComponent implements OnInit {
 
   }
 
-  toggleDepartInsert (v:boolean) : void {
-    this.parentVisible = v;
+  toggleDepartInsert (visible:boolean) : void {
+    this.parentVisible = visible;
   }
-  // onChildVisibleChanged(v:boolean) : void { 
-  //   this.parentVisible = v; 
-  // }
 
-  printInfo():void {
+  saveDepartInfo (di:Depart) :void { 
+    console.log("di : " + JSON.stringify(di) );
+
+    this.departInfo = di ;
+
+    this.addDepart();
+
+    //this.dis.addDepart(di);
+   
+  }
+
+  //---------------------------------------------------------------------------------------------------------------------//
+
+
+  // 2017.12.23
+    printInfo():void {
     console.log(this.departInfo) ;
   }
   changeShow():void {
