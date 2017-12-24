@@ -71,8 +71,8 @@ export class DepartComponent implements OnInit {
 
       datas => {
         let result = datas.json();
-        console.log(result.succeed);
-        console.log(result.di);
+        this.departInfo = result.di ; 
+        console.log(this.departInfo);
       }
 
     ); 
