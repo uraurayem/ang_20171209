@@ -26,9 +26,19 @@ export class DepartService {
     return this._http.get( this.url + url ) ;
     // this.departList.push(di); 
   }
-  
-  getDepartList():Array<Depart>{
-    return this.departList;
+
+  addDepartPost(di:Depart) :Observable <any> { 
+    let url:string = "api/departs";
+    return this._http.post( this.url + url  , di) ;
   }
   
+  getDepartList(diNo:string):Observable<any>{
+    let url:string = "api/departs/"+diNo ; 
+    return this._http.get(this.url + url ) ;
+  }
+  
+  deleteDeaprt(dino:number) :Observable <any> { 
+    let url:string ="api/departs/" + dino ; 
+    return this._http.delete(this.url+ url);
+  }
 }

@@ -15,9 +15,15 @@ export class DepartComponent implements OnInit {
   btn1_title: string = "테스트보기" ; 
   isShow:boolean = false ;
 
+  viewVisible:boolean =false ;
+  viewDi:Depart ;
+  viewDiNo:number;
+
   departList:Array<Depart> = [] ; 
 
 
+
+  diNo:string = '' ;
 
   //depart insert 에 보낼 값
   parentVisible :boolean = false ;
@@ -36,6 +42,10 @@ export class DepartComponent implements OnInit {
 
   toggleDepartInsert (visible:boolean) : void {
     this.parentVisible = visible;
+  }
+
+  toggleDepartUpdate(visible:boolean) :void {
+    this.viewVisible = visible;
   }
 
   saveDepartInfo (di:Depart) :void { 
@@ -65,14 +75,31 @@ export class DepartComponent implements OnInit {
       this.btn1_title = "테스트 안보기";
     }
   }
+
+  openView(diNo:number) :void {
+    console.log("openView diNo :"+ diNo);
+    this.viewVisible  = true ;
+
+    
+    this.viewDiNo = diNo;
+
+  }
+
   addDepart(di:Depart):void { 
  
-    this.dis.addDepart(di).subscribe (
+    this.dis.addDepartPost(di).subscribe (
 
       datas => {
         let result = datas.json();
-        this.departInfo = result.di ; 
-        console.log(this.departInfo);
+      //  this.departInfo = result.di ; 
+        console.log( result );
+
+        if(result.succeed=="ok") {
+          alert("부서 추가가 정상적으로 성공하였습니다.") ;
+          this.showDepartList();
+        } else { 
+          alert("부서 추가가 실패하였습니다.") ;
+        }
       }
 
     ); 
@@ -80,14 +107,36 @@ export class DepartComponent implements OnInit {
     // this.departInfo = new Depart();
   }
   showDepartList():void { 
-    this.departList = this.dis.getDepartList();
+   this.dis.getDepartList(this.diNo).subscribe(
+     datas => {
+       console.log(datas.json());
+       this.departList = datas.json();
+     }
+   ) ;
   }
 
-  deleteCurRow(dino:number):void { 
-    let idx:number =-1; 
 
-    idx = this.getFind(dino);
-    this.departList.splice(idx , 1) ;
+
+  deleteCurRow(di:Depart):void { 
+ 
+    let dino:number = di.dino ;
+    this.dis.deleteDeaprt(dino).subscribe(
+      datas=> {
+        let result = datas.json();
+          console.log( result );
+  
+          if(result.error ) { 
+            alert(result.error.msg) ;
+          } else {
+            alert("부서 삭제가 정상적으로 성공하였습니다.") ;
+            this.showDepartList();
+          }
+        }
+      
+    );
+
+
+
   }
 
   getFind(dino:number):number {
@@ -100,4 +149,11 @@ export class DepartComponent implements OnInit {
 
     return idx ;
   }
- }
+   getDepartById(dino:number):number { 
+
+     console.log("dino :" + dino );
+     return 1;
+  }
+
+}
+

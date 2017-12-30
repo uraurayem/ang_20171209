@@ -1,12 +1,7 @@
 <p>
  {{title}}
 </p>
-<div>
-  부서번호 {{departInfo.dino}}<br>
-  부서이름 {{departInfo.diname}}<br>
-  부서설명 {{departInfo.didesc}}<br>
-  부서인원 {{departInfo.dicnt}}<br>
-</div>
+
 <div>
 
   <!-- dino :  <input type="text" [(ngModel)] ="departInfo.dino" /><br>
@@ -25,9 +20,20 @@
                       (childVisible)="toggleDepartInsert($event)"
                       (childDepartInfo)="saveDepartInfo($event)">
   </app-depart-insert>
+
+
+  <app-depart-update *ngIf="viewVisible" [diNo]="viewDiNo"
+            (childVisible)="toggleDepartUpdate($event)"
+  >
+  </app-depart-update>
+
   
-  <button (click)="toggleDepartInsert(true)" >부서추가</button>
-  <button (click)="showDepartList()">부서리스트 보기</button>
+  <button (click)="toggleDepartInsert(true)" >부서추가</button> <br>
+  <input type="text" [(ngModel)]="diNo" />
+  <button (click)="showDepartList()">부서리스트 검색</button>
+  
+  
+  <br>
 
   <!-- <app-test *ngIf="isShow"></app-test>  -->
   <table *ngIf="departList.length > 0" border="1">
@@ -40,11 +46,11 @@
     </tr>
 
     <tr *ngFor="let di of departList ">
-      <td>{{di.dino}} </td>
+      <td (click)="openView(di.dino)">{{di.dino}} </td>
       <td>{{di.diname}} </td>
       <td>{{di.didesc}} </td>
       <td>{{di.dicnt}} </td>
-      <td> <button (click)="deleteCurRow(di.no)">삭제</button> </td>
+      <td> <button (click)="deleteCurRow(di)">삭제</button> </td>
     </tr>
 
   </table>
