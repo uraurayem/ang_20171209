@@ -24,6 +24,7 @@
 
   <app-depart-update *ngIf="viewVisible" [diNo]="viewDiNo"
             (childVisible)="toggleDepartUpdate($event)"
+            (childUpdateComplete) ="childUpdateComplete($event)"
   >
   </app-depart-update>
 

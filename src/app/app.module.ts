@@ -12,7 +12,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { DepartInsertComponent } from './depart-insert/depart-insert.component';
 import { FuncTestComponent } from './func-test/func-test.component';
 import { PromiseComponent } from './promise/promise.component';
-import { DepartUpdateComponent } from './depart-update/depart-update.component'; // ng generate component User 로 자동으로  추가된 부분
+import { DepartUpdateComponent } from './depart-update/depart-update.component';
+import { ParentComponent } from './parent/parent.component';
+import { LifecycleTestComponent } from './lifecycle-test/lifecycle-test.component';
+import { UserDepartComponent } from './user-depart/user-depart.component';
+import { UserViewComponent } from './user-view/user-view.component'; // ng generate component User 로 자동으로  추가된 부분
 
 
 @NgModule({
@@ -25,7 +29,11 @@ import { DepartUpdateComponent } from './depart-update/depart-update.component';
     DepartInsertComponent,
     FuncTestComponent,
     PromiseComponent,
-    DepartUpdateComponent ,
+    DepartUpdateComponent,
+    ParentComponent,
+    LifecycleTestComponent,
+    UserDepartComponent,
+    UserViewComponent ,
     AppComponent,
     UserComponent
   ],
@@ -37,8 +45,8 @@ import { DepartUpdateComponent } from './depart-update/depart-update.component';
     ReactiveFormsModule , 
     RouterModule.forRoot ([
       {
-        path: 'user', 
-        component :UserComponent
+        path: 'userdepart', 
+        component :UserDepartComponent
       } ,
       {
         path: 'test', 
@@ -62,6 +70,10 @@ import { DepartUpdateComponent } from './depart-update/depart-update.component';
       {
         path: 'promise', 
         component :PromiseComponent
+      },
+      {
+        path: 'parent', 
+        component :ParentComponent
       }
     ]) 
   ],

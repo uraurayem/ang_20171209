@@ -45,7 +45,9 @@ export class DepartComponent implements OnInit {
   }
 
   toggleDepartUpdate(visible:boolean) :void {
+
     this.viewVisible = visible;
+
   }
 
   saveDepartInfo (di:Depart) :void { 
@@ -155,5 +157,19 @@ export class DepartComponent implements OnInit {
      return 1;
   }
 
+
+  childUpdateComplete(result:string ) :void {
+
+    if(result == "ok") {
+      alert("부서 수정에 정상적으로 성공하였습니다.") ;
+      
+    } else { 
+      alert("부서 수정에 실패하였습니다.") ;
+    }
+
+    console.log("result: " + result ) ;
+    this.showDepartList();
+
+  }
 }
 

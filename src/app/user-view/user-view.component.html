@@ -1,0 +1,19 @@
+<div class="dialog">
+  <h3>유저 {{title}}</h3>
+
+  UserNo : <input type="text" [(ngModel)] ="userInfo.userNo" /><br>
+  아이디 :  <input type="text" [(ngModel)] ="userInfo.userId" /><br>
+  이름 :    <input type="text" [(ngModel)] ="userInfo.userName" /><br>
+  암호 :    <input type="text" [(ngModel)] ="userInfo.userPassword" /><br>
+  부서번호 : <input type="text" [(ngModel)] ="userInfo.diNo" /><br>
+
+
+    <div>
+      <button  (click)="save()">저장</button>
+      <button (click)="close()">취소</button>
+    </div>
+
+    <button  (click)="close()" 
+    aria-label="Close" class="dialog__close-btn">X</button>
+  </div>
+  <div  class="overlay" (click)="close()"></div>

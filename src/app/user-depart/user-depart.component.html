@@ -1,0 +1,52 @@
+<div>
+  <input type="text" value="{{sesarchText}}">
+  <button (click)="getUserList()">유저검색</button>
+
+
+  <button (click)="newUser()">새 유저</button> 
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>userNo</th>
+      <th>userName</th>
+      <th>userId</th>
+      <th>userPwd</th>
+      <th>부서명</th>
+      <th>수정</th>
+      <th>삭제</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="userList.length==0">
+      <td colspan="6">데이터가 없습니다.</td>
+    </tr>
+    <!-- <tr *ngFor="let un of userList" (click)="showUserHis(un.userNo)"> -->
+        <tr *ngFor="let un of userList" >
+      <td>{{un.userNo}}</td>
+      <td><input type="text" [(ngModel)]="un.userName"/></td>
+      <td><input type="text" [(ngModel)]="un.userId"/></td>
+      <td><input type="text" [(ngModel)]="un.userPwd"/></td>
+<td><select [(ngModel)]="un.diNo">
+<option *ngFor="let di of diList" [value]="di.dino">{{di.diname}}</option>
+</select></td>
+
+     <td>
+<button *ngIf="un.userNo != null " (click)="updateCurRow(un)" >수정</button>
+<button *ngIf="un.userNo == null " (click)="insertCurRow(un)" >생성</button>
+
+     </td>
+
+     <td>
+        <button (click)="deleteCurRow(un.userNo)" >삭제</button>
+        
+             </td>
+        </tr>
+  </tbody>
+</table>
+
+<!-- popup 영역 --> 
+
+<app-user-view *ngIf="isVisibleView" (viewClose)="toggleUserView($event)" ></app-user-view>
+
+<!-- popup 영역 --> 

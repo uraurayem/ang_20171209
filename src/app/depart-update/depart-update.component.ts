@@ -12,7 +12,8 @@ export class DepartUpdateComponent implements OnInit {
 
   @Input() diNo:number;  
   @Output() childVisible = new EventEmitter<boolean>();
-  
+  @Output() childUpdateComplete = new EventEmitter<string>();
+
   departInfo:Depart;
 
   constructor(private dus:DepartUpdateService) {
@@ -23,6 +24,15 @@ export class DepartUpdateComponent implements OnInit {
 
   save():void {
 
+    this.dus.updateDepartPost(this.departInfo).subscribe( datas => {
+
+      let result = datas.json();
+
+     
+        // 결과
+        this.childUpdateComplete.emit(result.succeed);
+        this.close();
+    } );
   }
   ngOnInit() {
     //
