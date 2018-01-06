@@ -47,6 +47,10 @@ export class CommonServiceService {
                     .catch(this.handleError);
   }
 
+  public getJSON(url:string):Observable<any>{
+    return this.getJson(url);
+  }
+
   protected postJson(url:string,paramObj:Object):Observable<any>{
     return this._http.post(url,
           paramObj,

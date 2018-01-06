@@ -17,6 +17,7 @@ import { ParentComponent } from './parent/parent.component';
 import { LifecycleTestComponent } from './lifecycle-test/lifecycle-test.component';
 import { UserDepartComponent } from './user-depart/user-depart.component';
 import { UserViewComponent } from './user-view/user-view.component'; // ng generate component User 로 자동으로  추가된 부분
+import { CommonServiceService } from './common/common-service.service';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { UserViewComponent } from './user-view/user-view.component'; // ng gener
       }
     ]) 
   ],
-  providers: [],
+  // ts에서 굳이 provider로 등록하지 않아도 사용가능하다
+  providers: [CommonServiceService],
  
   bootstrap: [AppComponent]
 })

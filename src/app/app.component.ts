@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import {User } from './user/user';
+import { CommonServiceService } from './common/common-service.service';
+import { RouterLink } from '@angular/router/src/directives/router_link';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
-
 })
 export class AppComponent {
   title = 'app';
@@ -13,12 +14,21 @@ export class AppComponent {
   // userName:string = "" ;
   // userAge:number = 0;
 
-  constructor(){
+  rlList:Array<RouterLink> = [] ; 
+  constructor(private css:CommonServiceService){
     this.user = new User(); 
     this.user.userId = "test";
-    this.user.userName = "테스트" 
+    this.user.userName = "테스트" ;
     sessionStorage.setItem("user", JSON.stringify(this.user));
-
+    let url ="http://localhost:3000/api/menus" ;
+    this.css.getJSON(url).subscribe(
+      res => {
+        this.rlList = res; 
+        console.log(this.rlList);
+      }
+    );
+    //css.
+    this.getMenus();
   }
   addUser():void {
   
@@ -41,6 +51,10 @@ export class AppComponent {
     // this.userList.push(user1);
 
   }
+  getMenus():void { 
+    
+  }
+
 
 }
 
