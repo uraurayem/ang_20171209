@@ -112,7 +112,7 @@ export class DepartComponent implements OnInit {
    this.dis.getDepartList(this.diNo).subscribe(
      datas => {
        console.log(datas.json());
-       this.departList = datas.json();
+       this.departList = datas.json().list;
      }
    ) ;
   }

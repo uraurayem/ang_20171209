@@ -39,8 +39,8 @@ export class DepartUpdateComponent implements OnInit {
     console.log("diNo : " +   this.diNo) ;
 
     this.dus.getDepart(this.diNo ).subscribe( res => {
-       this.departInfo= res.json()[0];
-
+      console.log( " res.list: " +  res.json().list[0] ) ;
+       this.departInfo=  res.json().list[0]  ;
     })
   }
 

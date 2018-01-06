@@ -23,7 +23,7 @@ export class AppComponent {
     let url ="http://localhost:3000/api/menus" ;
     this.css.getJSON(url).subscribe(
       res => {
-        this.rlList = res; 
+        this.rlList = res.list; 
         console.log(this.rlList);
       }
     );

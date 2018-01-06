@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {CommonServiceService} from '../common/common-service.service'
+import {CommonServiceService} from '../common/common-service.service';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import {User} from'../user';

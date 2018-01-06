@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
-export class DepartService {
+export class DepartService  {
 
   url: string = "http://localhost:3000/";
 
@@ -21,14 +21,16 @@ export class DepartService {
   }
 
   addDepart(di:Depart) :Observable <any> { 
-    let url:string = "api/depart?name=test&diname=ditest";
+    let url:string = "api/departs?name=test&diname=ditest";
   
-    return this._http.get( this.url + url ) ;
+  return this._http.get( this.url + url ) ;
+    
     // this.departList.push(di); 
   }
 
   addDepartPost(di:Depart) :Observable <any> { 
-    let url:string = "api/departs";
+    let url:string = "api/departs/insert";
+    console.log("url : "+ url );
     return this._http.post( this.url + url  , di) ;
   }
   
